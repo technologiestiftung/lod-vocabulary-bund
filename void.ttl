@@ -18,6 +18,6 @@ lodvocab: a void:Dataset ;
     dcterms:title "Berliner LOD-Vokabulare"@de,
         "Berlin LOD vocabularies"@en ;
     void:vocabulary berorgs: , blnal: , lorunits: ;
-    blnal:changelog <https://github.com/berlin/lod-vocabulary/blob/main/CHANGELOG.md> ;
-    foaf:homepage <https://github.com/berlin/lod-vocabulary> ;
+    blnal:changelog <https://github.com/technologiestiftung/lod-vocabulary-bund/blob/main/CHANGELOG.md> ;
+    foaf:homepage <https://github.com/technologiestiftung/lod-vocabulary-bund> ;
 .

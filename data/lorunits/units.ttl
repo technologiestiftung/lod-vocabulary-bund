@@ -27,9 +27,9 @@ unit: a owl:Ontology ;
     dcterms:modified "2025-11-17"^^xsd:date ;
     dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
     owl:versionInfo "0.1.0" ;
-    blnal:changelog <https://github.com/berlin/lod-vocabulary/blob/main/data/lorunits/CHANGELOG.md> ;
-    void:dataDump <https://raw.githubusercontent.com/berlin/lod-vocabulary/main/data/lorunits/units.ttl> ;
-    rdfs:seeAlso <https://raw.githubusercontent.com/berlin/lod-vocabulary/refs/heads/main/data/lorunits/stats.ttl> ;
+    blnal:changelog <https://github.com/technologiestiftung/lod-vocabulary-bund/blob/main/data/lorunits/CHANGELOG.md> ;
+    void:dataDump <https://raw.githubusercontent.com/technologiestiftung/lod-vocabulary-bund/main/data/lorunits/units.ttl> ;
+    rdfs:seeAlso <https://raw.githubusercontent.com/technologiestiftung/lod-vocabulary-bund/refs/heads/main/data/lorunits/stats.ttl> ;
 .
 
 unit:LOR_Unit a owl:Class ;

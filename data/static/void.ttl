@@ -29,7 +29,7 @@ lodvocab:
     dct:created "2023-09-25"^^xsd:date ;
     dct:modified "2025-11-10"^^xsd:date ;
     dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
-    foaf:homepage <https://github.com/berlin/lod-vocabulary> ;
+    foaf:homepage <https://github.com/technologiestiftung/lod-vocabulary-bund> ;
     void:feature swformats:Turtle ;
     void:vocabulary berorgs: ;
 .
