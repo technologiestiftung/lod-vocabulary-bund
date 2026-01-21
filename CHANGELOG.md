@@ -6,20 +6,20 @@
 
 _(2026-01-13)_
 
-- Update [Berliner Allerlei vocabulary](https://berlin.github.io/lod-vocabulary/blnal/) with [blnal:egovg](https://berlin.github.io/lod-vocabulary/blnal/egovg). -> https://github.com/technologiestiftung/lod-vocabulary-bund/blob/main/data/blnal/CHANGELOG.md#003
+- Update [Berliner Allerlei vocabulary](https://technologiestiftung.github.io/lod-vocabulary-bund/blnal/) with [blnal:egovg](https://technologiestiftung.github.io/lod-vocabulary-bund/blnal/egovg). -> https://github.com/technologiestiftung/lod-vocabulary-bund/blob/main/data/blnal/CHANGELOG.md#003
 
 ## [0.1.2](https://github.com/technologiestiftung/lod-vocabulary-bund/releases/tag/0.1.2)
 
 _(2025-11-27)_
 
-- Update [Berliner Allerlei vocabulary](https://berlin.github.io/lod-vocabulary/blnal/) with `blnal:includesPersonalData` and `blnal:personalDataExemption`. -> https://github.com/technologiestiftung/lod-vocabulary-bund/blob/main/data/blnal/CHANGELOG.md#002
+- Update [Berliner Allerlei vocabulary](https://technologiestiftung.github.io/lod-vocabulary-bund/blnal/) with `blnal:includesPersonalData` and `blnal:personalDataExemption`. -> https://github.com/technologiestiftung/lod-vocabulary-bund/blob/main/data/blnal/CHANGELOG.md#002
 
 ## [0.1.1](https://github.com/technologiestiftung/lod-vocabulary-bund/releases/tag/0.1.1)
 
 _(2025-11-17)_
 
-- Add [LOR Units vocabulary](https://berlin.github.io/lod-vocabulary/lorunits/).
-- Add [Berliner Allerlei vocabulary](https://berlin.github.io/lod-vocabulary/blnal/).
+- Add [LOR Units vocabulary](https://technologiestiftung.github.io/lod-vocabulary-bund/lorunits/).
+- Add [Berliner Allerlei vocabulary](https://technologiestiftung.github.io/lod-vocabulary-bund/blnal/).
 
 ## [0.1.0](https://github.com/technologiestiftung/lod-vocabulary-bund/releases/tag/0.1.0)
 

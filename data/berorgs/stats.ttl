@@ -1,4 +1,4 @@
-@prefix berorgs: <https://berlin.github.io/lod-vocabulary/berorgs/> .
+@prefix berorgs: <https://technologiestiftung.github.io/lod-vocabulary-bund/berorgs/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix void: <http://rdfs.org/ns/void#> .

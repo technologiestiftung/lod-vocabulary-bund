@@ -7,9 +7,9 @@
 @prefix swformats: <https://www.w3.org/ns/formats/> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix blnal: <https://berlin.github.io/lod-vocabulary/blnal/> .
+@prefix blnal: <https://technologiestiftung.github.io/lod-vocabulary-bund/blnal/> .
 
-@prefix unit: <https://berlin.github.io/lod-vocabulary/lorunits/> .
+@prefix unit: <https://technologiestiftung.github.io/lod-vocabulary-bund/lorunits/> .
 
 # LOR Units
 

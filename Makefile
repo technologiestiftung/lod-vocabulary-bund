@@ -10,27 +10,27 @@ data/berorgs/stats.ttl: data/berorgs/berorgs.ttl
 	@echo "writing to $@ ..."
 	@python bin/void_statistics.py \
 		--input $^ \
-		--base_uri "https://berlin.github.io/lod-vocabulary/berorgs/" \
+		--base_uri "https://technologiestiftung.github.io/lod-vocabulary-bund/berorgs/" \
 		--base_prefix "berorgs" \
-		--dataset_uri "https://berlin.github.io/lod-vocabulary/berorgs/" > $@
+		--dataset_uri "https://technologiestiftung.github.io/lod-vocabulary-bund/berorgs/" > $@
 
 data/blnal/stats.ttl: data/blnal/blnal.ttl
 	@echo "generating VOID statistics for Berliner Allerlei vocab from $^..."
 	@echo "writing to $@ ..."
 	@python bin/void_statistics.py \
 		--input $^ \
-		--base_uri "https://berlin.github.io/lod-vocabulary/blnal/" \
+		--base_uri "https://technologiestiftung.github.io/lod-vocabulary-bund/blnal/" \
 		--base_prefix "blnal" \
-		--dataset_uri "https://berlin.github.io/lod-vocabulary/blnal/" > $@
+		--dataset_uri "https://technologiestiftung.github.io/lod-vocabulary-bund/blnal/" > $@
 
 data/lorunits/stats.ttl: data/lorunits/units.ttl
 	@echo "generating VOID statistics for LOR Units vocab from $^..."
 	@echo "writing to $@ ..."
 	@python bin/void_statistics.py \
 		--input $^ \
-		--base_uri "https://berlin.github.io/lod-vocabulary/lorunits/" \
+		--base_uri "https://technologiestiftung.github.io/lod-vocabulary-bund/lorunits/" \
 		--base_prefix "lorunits" \
-		--dataset_uri "https://berlin.github.io/lod-vocabulary/lorunits/" > $@
+		--dataset_uri "https://technologiestiftung.github.io/lod-vocabulary-bund/lorunits/" > $@
 
 # This target creates the RDF file that serves as the input to the static site generator.
 # All data should be merged in this file. This should include at least the VOID dataset

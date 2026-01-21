@@ -1,4 +1,4 @@
-@prefix blnal: <https://berlin.github.io/lod-vocabulary/blnal/> .
+@prefix blnal: <https://technologiestiftung.github.io/lod-vocabulary-bund/blnal/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .

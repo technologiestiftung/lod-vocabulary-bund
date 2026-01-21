@@ -4,7 +4,7 @@
 # - German description
 # Also show which of these is missing.
 
-PREFIX berorgs: <https://berlin.github.io/lod-vocabulary/berorgs/>
+PREFIX berorgs: <https://technologiestiftung.github.io/lod-vocabulary-bund/berorgs/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT ?vocab_element ?label_en_missing ?comment_de_missing ?comment_en_missing
