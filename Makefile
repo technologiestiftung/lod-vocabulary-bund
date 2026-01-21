@@ -48,7 +48,7 @@ data/bundorgs/stats.ttl: data/bundorgs/bundorgs.ttl
 data/temp/all.nt: data/temp void.ttl \
 	data/berorgs/berorgs.ttl data/berorgs/stats.ttl \
 	data/lorunits/units.ttl data/lorunits/stats.ttl \
-	data/bundorgs/units.ttl data/bundorgs/stats.ttl \
+	data/bundorgs/bundorgs.ttl data/bundorgs/stats.ttl \
 	data/blnal/blnal.ttl data/blnal/stats.ttl
 	@echo "combining $(filter-out $<,$^) to $@ ..."
 	@rdfpipe -o ntriples $(filter-out $<,$^) > $@
