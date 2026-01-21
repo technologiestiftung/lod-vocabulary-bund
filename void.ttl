@@ -1,3 +1,4 @@
+@prefix bundorgs: <https://technologiestiftung.github.io/lod-vocabulary-bund/bundorgs/> .
 @prefix berorgs: <https://technologiestiftung.github.io/lod-vocabulary-bund/berorgs/> .
 @prefix blnal: <https://technologiestiftung.github.io/lod-vocabulary-bund/blnal/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -17,7 +18,7 @@ lodvocab: a void:Dataset ;
     dcterms:modified "2026-01-13"^^xsd:date ;
     dcterms:title "Berliner LOD-Vokabulare"@de,
         "Berlin LOD vocabularies"@en ;
-    void:vocabulary berorgs: , blnal: , lorunits: ;
+    void:vocabulary berorgs: , blnal: , lorunits:, bundorgs: ;
     blnal:changelog <https://github.com/technologiestiftung/lod-vocabulary-bund/blob/main/CHANGELOG.md> ;
     foaf:homepage <https://github.com/technologiestiftung/lod-vocabulary-bund> ;
 .

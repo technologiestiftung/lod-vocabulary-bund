@@ -32,6 +32,15 @@ data/lorunits/stats.ttl: data/lorunits/units.ttl
 		--base_prefix "lorunits" \
 		--dataset_uri "https://technologiestiftung.github.io/lod-vocabulary-bund/lorunits/" > $@
 
+data/bundorgs/stats.ttl: data/bundorgs/bundorgs.ttl
+	@echo "generating VOID statistics for Bundorgs vocab from $^..."
+	@echo "writing to $@ ..."
+	@python bin/void_statistics.py \
+		--input $^ \
+		--base_uri "https://technologiestiftung.github.io/lod-vocabulary-bund/bundorgs/" \
+		--base_prefix "bundorgs" \
+		--dataset_uri "https://technologiestiftung.github.io/lod-vocabulary-bund/bundorgs/" > $@
+
 # This target creates the RDF file that serves as the input to the static site generator.
 # All data should be merged in this file. This should include at least the VOID dataset
 # description and the actual data.
@@ -39,6 +48,7 @@ data/lorunits/stats.ttl: data/lorunits/units.ttl
 data/temp/all.nt: data/temp void.ttl \
 	data/berorgs/berorgs.ttl data/berorgs/stats.ttl \
 	data/lorunits/units.ttl data/lorunits/stats.ttl \
+	data/bundorgs/units.ttl data/bundorgs/stats.ttl \
 	data/blnal/blnal.ttl data/blnal/stats.ttl
 	@echo "combining $(filter-out $<,$^) to $@ ..."
 	@rdfpipe -o ntriples $(filter-out $<,$^) > $@

@@ -1,0 +1,566 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema: <https://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix swformats: <https://www.w3.org/ns/formats/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix blnal: <https://technologiestiftung.github.io/lod-vocabulary/blnal/> .
+@prefix bundorgs: <https://technologiestiftung.github.io/lod-vocabulary-bund/bundorgs/> .
+
+# Vocabulary Terms
+
+bundorgs: a owl:Ontology ;
+    rdfs:label "Bundes-Organisationsvokabular"@de ;
+    rdfs:label "Federal Public Organisation Vocabulary"@en ;
+    rdfs:comment """Ein Vokabular zur Beschreibung von Organisationen und Organisationseinheiten
+    der deutschen Bundesverwaltung. Dies umfasst Bundesministerien, nachgeordnete Behörden,
+    Körperschaften sowie Typen von Unterorganisationen und organisatorische Rollen
+    wie Abteilungen oder Beauftragte."""@de ;
+    rdfs:comment """A vocabulary for describing organisations and organisational units
+    of the German federal administration."""@en ;
+    void:dataDump <https://raw.githubusercontent.com/technologiestiftung/lod-vocabulary-bund/main/data/bundorgs/bundorgs.ttl> ;
+    void:feature swformats:Turtle ;
+    dcterms:created "2026-01-19"^^xsd:date ;
+    dcterms:modified "2026-01-19"^^xsd:date ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    owl:versionInfo "0.1.0" ;
+    blnal:changelog <https://github.com/technologiestiftung/lod-vocabulary-bund/blob/main/data/bundorgs/CHANGELOG.md> ;
+    rdfs:seeAlso <https://raw.githubusercontent.com/technologiestiftung/lod-vocabulary-bund/refs/heads/main/data/bundorgs/stats.ttl> ;
+.
+
+bundorgs:Organogram a owl:Class ;
+    rdfs:label "Organigramm"@de ;
+    rdfs:label "organogram"@en ;
+    rdfs:comment """Die Organisationsstruktur oder das Organigramm einer Organisation,
+    z.B. einer Behörde."""@de ;
+    rdfs:comment """The organizational chart or organogram of an organization, e.g.
+    a department within the public administration."""@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:contains a owl:ObjectProperty ;
+    rdfs:label "enthält"@de ;
+    rdfs:label "contains"@en;
+    rdfs:comment """Diese Property bildet die Relation zwischen einem Organigramm und
+    den in ihm enthaltenen Organisationen ab."""@de ;
+    rdfs:comment """This property models the relation between an organogram and the
+    organizations contained within it."""@en ;
+    rdfs:domain bundorgs:Organogram ;
+    rdfs:range org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+# Vocabulary Terms
+
+bundorgs:Bundesministerium a owl:Class ;
+    rdfs:label "Bundesministerium"@de ;
+    rdfs:label "Federal Ministry"@en ;
+    rdfs:comment "Oberste Bundesbehörde der Bundesverwaltung, verantwortlich für einen Geschäftsbereich der Bundesregierung."@de ;
+    rdfs:comment "Supreme federal authority responsible for a policy portfolio of the Federal Government."@en ;
+    rdfs:subClassOf schema:GovernmentOrganization ;
+    rdfs:subClassOf schema:GovernmentOffice ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Referat a owl:Class ;
+    rdfs:label "Referat"@de ;
+    rdfs:label "Unit (Referat)"@en ;
+    rdfs:comment "Untergliederung innerhalb einer Abteilung, zuständig für ein abgegrenztes Sachgebiet."@de ;
+    rdfs:comment "Sub-unit within a division responsible for a defined subject area."@en ;
+    rdfs:subClassOf org:OrganizationalUnit ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Abteilung a owl:Class ;
+    rdfs:label "Abteilung"@de ;
+    rdfs:label "Division"@en ;
+    rdfs:comment "Größere Organisationseinheit innerhalb einer Behörde, die mehrere Referate und Aufgabenbereiche bündelt."@de ;
+    rdfs:comment "Larger organizational unit grouping multiple units and responsibilities within an authority."@en ;
+    rdfs:subClassOf org:OrganizationalUnit ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Unterabteilung a owl:Class ;
+    rdfs:label "Unterabteilung"@de ;
+    rdfs:label "Sub-division"@en ;
+    rdfs:comment "Zwischenebene innerhalb einer Abteilung; fasst mehrere Referate oder Teilbereiche zusammen."@de ;
+    rdfs:comment "Intermediate level within a division; groups several units or sub-areas."@en ;
+    rdfs:subClassOf org:OrganizationalUnit ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Organisationseinheit a owl:Class ;
+    rdfs:label "Organisationseinheit"@de ;
+    rdfs:label "Organizational Unit"@en ;
+    rdfs:comment "Allgemeiner Typ für eine organisatorische Einheit innerhalb einer Organisation."@de ;
+    rdfs:comment "Generic type for an organizational unit within an organization."@en ;
+    rdfs:subClassOf org:OrganizationalUnit ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:NachgeordneteEinrichtung a owl:Class ;
+    rdfs:label "Nachgeordnete Einrichtung"@de ;
+    rdfs:label "Subordinate Institution"@en ;
+    rdfs:comment "Organisation, die einer übergeordneten Behörde organisatorisch oder fachlich nachgeordnet ist."@de ;
+    rdfs:comment "Organization subordinate to a superior authority in organizational or functional terms."@en ;
+    rdfs:subClassOf schema:GovernmentOrganization ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Stabsstelle a owl:Class ;
+    rdfs:label "Stabsstelle"@de ;
+    rdfs:label "Staff Unit"@en ;
+    rdfs:comment "Spezialisierte Einheit zur Unterstützung der Leitung, häufig mit koordinierenden, beratenden oder strategischen Aufgaben."@de ;
+    rdfs:comment "Specialized unit supporting leadership, often with coordination, advisory or strategic tasks."@en ;
+    rdfs:subClassOf org:OrganizationalUnit ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Leitungsstab a owl:Class ;
+    rdfs:label "Leitungsstab"@de ;
+    rdfs:label "Management Staff"@en ;
+    rdfs:comment "Einheit, die die Behördenleitung unmittelbar unterstützt (z.B. Planung, Koordination, Vorlagen, Kommunikation)."@de ;
+    rdfs:comment "Unit directly supporting the head of the authority (e.g., planning, coordination, briefs, communication)."@en ;
+    rdfs:subClassOf bundorgs:Stabsstelle ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Buero a owl:Class ;
+    rdfs:label "Büro"@de ;
+    rdfs:label "Office"@en ;
+    rdfs:comment "Organisatorische Einheit bzw. Funktionsstelle, z.B. als Arbeits- oder Koordinationsbüro."@de ;
+    rdfs:comment "Organizational or functional office unit, e.g., a working or coordination office."@en ;
+    rdfs:subClassOf org:OrganizationalUnit ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Ressort a owl:Class ;
+    rdfs:label "Ressort"@de ;
+    rdfs:label "Portfolio (Ressort)"@en ;
+    rdfs:comment "Zuständigkeits- oder Aufgabenbereich, der fachlich zusammenhängende Themen und Verantwortlichkeiten bündelt."@de ;
+    rdfs:comment "Portfolio/responsibility area bundling related topics and responsibilities."@en ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Justitiariat a owl:Class ;
+    rdfs:label "Justitiariat"@de ;
+    rdfs:label "Legal Department"@en ;
+    rdfs:comment "Organisationseinheit für Rechtsfragen, rechtliche Beratung und rechtliche Qualitätssicherung."@de ;
+    rdfs:comment "Organizational unit responsible for legal matters, legal advice and legal quality assurance."@en ;
+    rdfs:subClassOf org:OrganizationalUnit ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Geschaeftsbereich a owl:Class ;
+    rdfs:label "Geschäftsbereich"@de ;
+    rdfs:label "Portfolio Area"@en ;
+    rdfs:comment "Organisatorisch/fachlich abgegrenzter Zuständigkeitsbereich, oft als übergreifende Struktur für nachgeordnete Einheiten genutzt."@de ;
+    rdfs:comment "Delimited area of responsibility, often used as an umbrella structure for subordinate bodies."@en ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Geschaeftsstelle a owl:Class ;
+    rdfs:label "Geschäftsstelle"@de ;
+    rdfs:label "Secretariat Office"@en ;
+    rdfs:comment "Geschäftsführende Stelle zur organisatorischen Unterstützung (z.B. Gremienarbeit, Koordination, Abläufe, Termine)."@de ;
+    rdfs:comment "Administrative office providing operational support (e.g., committee work, coordination, processes, scheduling)."@en ;
+    rdfs:subClassOf org:OrganizationalUnit ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Pressestelle a owl:Class ;
+    rdfs:label "Pressestelle"@de ;
+    rdfs:label "Press Office"@en ;
+    rdfs:comment "Einheit für Presse- und Öffentlichkeitsarbeit sowie Medienkommunikation."@de ;
+    rdfs:comment "Unit responsible for press, public relations and media communication."@en ;
+    rdfs:subClassOf org:OrganizationalUnit ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Projektgruppe a owl:Class ;
+    rdfs:label "Projektgruppe"@de ;
+    rdfs:label "Project Group"@en ;
+    rdfs:comment "Temporäre organisatorische Einheit zur Bearbeitung eines Projekts mit definiertem Ziel, Zeit- und Ressourcenrahmen."@de ;
+    rdfs:comment "Temporary organizational unit established to deliver a defined project within a given timeframe and scope."@en ;
+    rdfs:subClassOf org:OrganizationalUnit ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Arbeitsgruppe a owl:Class ;
+    rdfs:label "Arbeitsgruppe"@de ;
+    rdfs:label "Working Group"@en ;
+    rdfs:comment "Einheit (oft temporär) zur gemeinsamen Bearbeitung fach- oder bereichsübergreifender Aufgaben."@de ;
+    rdfs:comment "Unit (often temporary) working jointly on tasks across domains or departments."@en ;
+    rdfs:subClassOf org:OrganizationalUnit ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Sonderaufgabe a owl:Class ;
+    rdfs:label "Sonderaufgabe"@de ;
+    rdfs:label "Special Assignment"@en ;
+    rdfs:comment "Spezifische, häufig zeitlich befristete Aufgabe bzw. Funktionseinheit mit besonderem Auftrag."@de ;
+    rdfs:comment "Specific, often time-limited task or functional unit with a special mandate."@en ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Koordinierungsstelle a owl:Class ;
+    rdfs:label "Koordinierungsstelle"@de ;
+    rdfs:label "Coordination Unit"@en ;
+    rdfs:comment "Einheit zur Koordination von Querschnittsaufgaben, Programmen oder organisationsübergreifenden Aktivitäten."@de ;
+    rdfs:comment "Unit responsible for coordinating cross-cutting tasks, programmes or inter-organizational activities."@en ;
+    rdfs:subClassOf org:OrganizationalUnit ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:KoordinierungsstelleKlimaneutraleBundesverwaltung a owl:Class ;
+    rdfs:label "Koordinierungsstelle Klimaneutrale Bundesverwaltung"@de ;
+    rdfs:label "Coordination Unit for Climate-Neutral Federal Administration"@en ;
+    rdfs:comment "Spezifische Koordinierungsstelle zur Steuerung/Koordination von Maßnahmen zur klimaneutralen Bundesverwaltung."@de ;
+    rdfs:comment "Dedicated coordination unit for measures toward a climate-neutral federal administration."@en ;
+    rdfs:subClassOf bundorgs:Koordinierungsstelle ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:SozialerDienst a owl:Class ;
+    rdfs:label "Sozialer Dienst"@de ;
+    rdfs:label "Social Services Unit"@en ;
+    rdfs:comment "Einheit für soziale Beratung, Unterstützung und interne soziale Dienste."@de ;
+    rdfs:comment "Unit providing social counselling and internal social support services."@en ;
+    rdfs:subClassOf org:OrganizationalUnit ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:AerztlicherDienst a owl:Class ;
+    rdfs:label "Ärztlicher Dienst"@de ;
+    rdfs:label "Medical Service"@en ;
+    rdfs:comment "Einheit für arbeits-/amtsärztliche Aufgaben sowie medizinische Begutachtung und Beratung."@de ;
+    rdfs:comment "Unit providing occupational/official medical services, assessments and medical advice."@en ;
+    rdfs:subClassOf org:OrganizationalUnit ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Registratur a owl:Class ;
+    rdfs:label "Registratur"@de ;
+    rdfs:label "Records Office"@en ;
+    rdfs:comment "Organisationseinheit für Aktenführung, Schriftgutverwaltung und Registraturprozesse."@de ;
+    rdfs:comment "Organizational unit responsible for records management and filing processes."@en ;
+    rdfs:subClassOf org:OrganizationalUnit ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Hausservice a owl:Class ;
+    rdfs:label "Hausservice"@de ;
+    rdfs:label "Facility Services"@en ;
+    rdfs:comment "Einheit für hausinterne Services (z.B. Post-/Botendienste, Gebäudeservice, Logistik, Veranstaltungsunterstützung)."@de ;
+    rdfs:comment "Unit providing in-house services (e.g., mail/courier services, facility support, logistics, event support)."@en ;
+    rdfs:subClassOf org:OrganizationalUnit ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+# Roles
+
+bundorgs:BundesministerIn a org:Role ;
+    rdfs:label "Bundesminister:in"@de ;
+    rdfs:label "Federal Minister"@en ;
+    rdfs:comment "Bundesminister:in, Mitglied der Bundesregierung und Leiter:in eines Bundesministeriums."@de ;
+    rdfs:comment "Federal Minister; member of the Federal Government and head of a federal ministry."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:StaatssekretaerIn a org:Role ;
+    rdfs:label "Staatssekretär:in"@de ;
+    rdfs:label "State Secretary"@en ;
+    rdfs:comment "Beamtete:r oder politische:r Staatssekretär:in als ranghohe Leitungsebene zur Unterstützung der Ministeriumsleitung."@de ;
+    rdfs:comment "Senior executive supporting the ministry leadership (civil service or political appointment, depending on context)."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:ParlamentarischeRStaatssekretaerIn a org:Role ;
+    rdfs:label "Parlamentarische:r Staatssekretär:in"@de ;
+    rdfs:label "Parliamentary State Secretary"@en ;
+    rdfs:comment "Parlamentarische:r Staatssekretär:in; politische Funktion zur Unterstützung der Ministeriumsleitung und zur Verbindung mit dem Parlament."@de ;
+    rdfs:comment "Parliamentary State Secretary; political role supporting the ministry leadership and liaising with parliament."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:StaatsministerIn a org:Role ;
+    rdfs:label "Staatsminister:in"@de ;
+    rdfs:label "Minister of State"@en ;
+    rdfs:comment "Staatsminister:in; politische Leitungsfunktion (z.B. im Bundeskanzleramt oder als besondere ministerielle Zuständigkeit)."@de ;
+    rdfs:comment "Minister of State; political leadership role (e.g., at the Federal Chancellery or with a special portfolio)."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Abteilungsleitung a org:Role ;
+    rdfs:label "Abteilungsleitung"@de ;
+    rdfs:label "Division Head"@en ;
+    rdfs:comment "Leitung einer Abteilung in einem Bundesministerium oder einer Bundesbehörde."@de ;
+    rdfs:comment "Head of a division within a federal ministry or federal authority."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Referatsleitung a org:Role ;
+    rdfs:label "Referatsleitung"@de ;
+    rdfs:label "Department Head"@en ;
+    rdfs:comment "Leitung eines Referats (fachliche und organisatorische Verantwortung für das Referat)."@de ;
+    rdfs:comment "Head of a unit (Referat), responsible for its management and subject matter."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Unterabteilungsleitung a org:Role ;
+    rdfs:label "Unterabteilungsleitung"@de ;
+    rdfs:label "Sub-division Head"@en ;
+    rdfs:comment "Leitung einer Unterabteilung als Zwischenebene innerhalb einer Abteilung."@de ;
+    rdfs:comment "Head of a sub-division as an intermediate level within a division."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Leitung a org:Role ;
+    rdfs:label "Leitung"@de ;
+    rdfs:label "Leadership"@en ;
+    rdfs:comment "Allgemeine Leitungsfunktion, wenn keine spezifischere Rollenbezeichnung vorliegt."@de ;
+    rdfs:comment "Generic leadership role when no more specific role term is available."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:LeitungDesLeitungsstabs a org:Role ;
+    rdfs:label "Leitung des Leitungsstabs"@de ;
+    rdfs:label "Head of Management Staff"@en ;
+    rdfs:comment "Leitung des Leitungsstabs; Führungsfunktion des Stabs zur unmittelbaren Unterstützung der Hausleitung."@de ;
+    rdfs:comment "Head of the management staff supporting the ministry/authority leadership."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Bueroleitung a org:Role ;
+    rdfs:label "Büroleitung"@de ;
+    rdfs:label "Chief of Staff"@en ;
+    rdfs:comment "Leitung eines Büros (z.B. Ministerbüro/Leitungsbüro) inkl. Koordination von Abläufen und Mitarbeitenden."@de ;
+    rdfs:comment "Head of an office (e.g., minister’s office), coordinating operations and staff."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:ReferentIn a org:Role ;
+    rdfs:label "Referent:in"@de ;
+    rdfs:label "Specialist"@en ;
+    rdfs:comment "Fachreferent:in; sachbearbeitende bzw. konzeptionelle Fachrolle mit Verantwortung für Themengebiete."@de ;
+    rdfs:comment "Specialist/adviser responsible for subject-matter work and drafting within a defined policy area."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:PressesprecherIn a org:Role ;
+    rdfs:label "Pressesprecher:in"@de ;
+    rdfs:label "Press Spokesperson"@en ;
+    rdfs:comment "Offizielle:r Sprecher:in einer Organisation für Presse- und Medienanfragen."@de ;
+    rdfs:comment "Official spokesperson responsible for press and media communication."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:DatenschutzbeauftragteR a org:Role ;
+    rdfs:label "Behördliche:r Datenschutzbeauftragte:r"@de ;
+    rdfs:label "Data Privacy Officer"@en ;
+    rdfs:comment "Rolle zur Überwachung und Beratung hinsichtlich Datenschutz und datenschutzrechtlicher Vorgaben in der Behörde."@de ;
+    rdfs:comment "Role responsible for advising on and monitoring compliance with data protection requirements."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:BehoerdlicheRBeauftragteR a org:Role ;
+    rdfs:label "Behördliche:r Beauftragte:r"@de ;
+    rdfs:label "Agency Commissioner"@en ;
+    rdfs:comment "Generische Rolle für behördeninterne Beauftragte mit einem spezifischen Zuständigkeitsbereich."@de ;
+    rdfs:comment "Generic role for internal commissioners/officers with a defined responsibility area."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:GleichstellungsbeauftragteR a org:Role ;
+    rdfs:label "Gleichstellungsbeauftragte:r"@de ;
+    rdfs:label "Equal Opportunities Officer"@en ;
+    rdfs:comment "Rolle zur Förderung der Gleichstellung und zur Beratung in Gleichstellungsfragen."@de ;
+    rdfs:comment "Role responsible for promoting equal opportunities and advising on equality matters."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Personalrat a org:Role ;
+    rdfs:label "Personalrat"@de ;
+    rdfs:label "Staff Council"@en ;
+    rdfs:comment "Interessenvertretung der Beschäftigten (Personalvertretung) innerhalb der Dienststelle."@de ;
+    rdfs:comment "Employee representative body within the authority/organization."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Frauenvertretung a org:Role ;
+    rdfs:label "Frauenvertretung"@de ;
+    rdfs:label "Women’s Representative"@en ;
+    rdfs:comment "Interessenvertretung für Frauenbelange innerhalb der Dienststelle."@de ;
+    rdfs:comment "Representative function for women’s interests within the organization."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Schwerbehindertenvertretung a org:Role ;
+    rdfs:label "Schwerbehindertenvertretung"@de ;
+    rdfs:label "Representative for Employees with Severe Disabilities"@en ;
+    rdfs:comment "Interessenvertretung der schwerbehinderten Beschäftigten."@de ;
+    rdfs:comment "Representative body for employees with severe disabilities."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Auszubildendenvertretung a org:Role ;
+    rdfs:label "Auszubildendenvertretung"@de ;
+    rdfs:label "Trainee Representative"@en ;
+    rdfs:comment "Interessenvertretung der Auszubildenden."@de ;
+    rdfs:comment "Representative function for trainees/apprentices."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:SachbearbeiterIn a org:Role ;
+    rdfs:label "Sachbearbeiter:in"@de ;
+    rdfs:label "Case Officer"@en ;
+    rdfs:comment "Sachbearbeitende Rolle zur Bearbeitung von Vorgängen und Fachaufgaben."@de ;
+    rdfs:comment "Role responsible for handling cases/procedures and day-to-day specialist tasks."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:BuerosachbearbeiterIn a org:Role ;
+    rdfs:label "Bürosachbearbeiter:in"@de ;
+    rdfs:label "Administrative Officer"@en ;
+    rdfs:comment "Sachbearbeitung mit Schwerpunkt Büroorganisation, Assistenz und administrative Abläufe."@de ;
+    rdfs:comment "Administrative role focused on office operations, assistance and workflows."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:AnsprechpersonKorruptionspraevention a org:Role ;
+    rdfs:label "Ansprechperson für Korruptionsprävention"@de ;
+    rdfs:label "Contact Person for Anti-Corruption"@en ;
+    rdfs:comment "Kontakt- und Anlaufstelle für Fragen der Korruptionsprävention und entsprechende Verfahren."@de ;
+    rdfs:comment "Point of contact for anti-corruption prevention topics and related procedures."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:BeauftragteRFuerSponsoring a org:Role ;
+    rdfs:label "Beauftragte:r für Sponsoring"@de ;
+    rdfs:label "Sponsoring Officer"@en ;
+    rdfs:comment "Rolle für die Koordination, Prüfung und Beratung zu Sponsoring-Vorhaben."@de ;
+    rdfs:comment "Role coordinating, reviewing and advising on sponsoring activities."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:BeauftragteRFuerDenHaushalt a org:Role ;
+    rdfs:label "Beauftragte:r für den Haushalt"@de ;
+    rdfs:label "Budget Officer"@en ;
+    rdfs:comment "Rolle für Haushaltsangelegenheiten, Budgetplanung und -steuerung innerhalb der Organisation."@de ;
+    rdfs:comment "Role responsible for budget matters, planning and controlling within the organization."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:PersoenlicheRReferentIn a org:Role ;
+    rdfs:label "Persönliche:r Referent:in"@de ;
+    rdfs:label "Personal Adviser"@en ;
+    rdfs:comment "Persönliche:r Referent:in zur unmittelbaren Unterstützung einer Leitungsperson (z.B. Minister:in, Staatssekretär:in)."@de ;
+    rdfs:comment "Personal adviser directly supporting a senior leader (e.g., minister or state secretary)."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:ChiefAIOfficer a org:Role ;
+    rdfs:label "Chief AI Officer"@en ;
+    rdfs:label "Chief AI Officer"@de ;
+    rdfs:comment "Rolle mit strategischer Verantwortung für den Einsatz und die Governance von KI in der Organisation."@de ;
+    rdfs:comment "Role with strategic responsibility for AI adoption and governance within the organization."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:ChiefProcurementOfficer a org:Role ;
+    rdfs:label "Chief Procurement Officer"@en ;
+    rdfs:label "Chief Procurement Officer"@de ;
+    rdfs:comment "Rolle mit strategischer Verantwortung für Beschaffung und Vergabe in der Organisation."@de ;
+    rdfs:comment "Role with strategic responsibility for procurement and purchasing."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:InformationssicherheitsbeauftragteR a org:Role ;
+    rdfs:label "Informationssicherheitsbeauftragte:r"@de ;
+    rdfs:label "Information Security Officer"@en ;
+    rdfs:comment "Rolle zur Koordination und Überwachung der Informationssicherheit (z.B. ISMS, Richtlinien, Maßnahmen)."@de ;
+    rdfs:comment "Role coordinating and overseeing information security (e.g., ISMS, policies, measures)."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:JugendUndAuszubildendenvertretung a org:Role ;
+    rdfs:label "Jugend- und Auszubildendenvertretung"@de ;
+    rdfs:label "Youth and Trainee Representation"@en ;
+    rdfs:comment "Interessenvertretung der Jugendlichen und Auszubildenden in der Dienststelle."@de ;
+    rdfs:comment "Representative body for young employees and trainees."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:VertrauenspersonSchwerbehinderteMenschen a org:Role ;
+    rdfs:label "Vertrauensperson der schwerbehinderten Menschen"@de ;
+    rdfs:label "Trusted Representative for Employees with Severe Disabilities"@en ;
+    rdfs:comment "Vertrauensperson (Vertrauensfrau/Vertrauensmann) der schwerbehinderten Menschen."@de ;
+    rdfs:comment "Trusted representative (female/male) for employees with severe disabilities."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Hauptpersonalrat a org:Role ;
+    rdfs:label "Hauptpersonalrat"@de ;
+    rdfs:label "Main Staff Council"@en ;
+    rdfs:comment "Übergeordnete Personalvertretung (z.B. auf Ressort-/Geschäftsbereichsebene)."@de ;
+    rdfs:comment "Higher-level employee representative body (e.g., at portfolio level)."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:StaendigeRVertreterIn a org:Role ;
+    rdfs:label "Ständige:r Vertreter:in"@de ;
+    rdfs:label "Permanent Representative"@en ;
+    rdfs:comment "Rolle zur ständigen Vertretung einer Leitung oder Organisationseinheit."@de ;
+    rdfs:comment "Role permanently deputizing for a leader or organizational unit."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:InterneRevision a org:Role ;
+    rdfs:label "Interne Revision"@de ;
+    rdfs:label "Internal Audit"@en ;
+    rdfs:comment "Funktion zur unabhängigen Prüfung und Bewertung von Prozessen, Kontrollen und Risikomanagement."@de ;
+    rdfs:comment "Function responsible for independent auditing and assessment of processes, controls and risk management."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+# bundorgs:BeauftragteRBundesregierungFuerAufgabe a org:Role ;
+#     rdfs:label "Beauftragte:r der Bundesregierung für [Aufgabe]"@de ;
+#     rdfs:label "Federal Government Commissioner for [Task]"@en ;
+#     rdfs:comment "Rolle für eine:n Beauftragte:n der Bundesregierung mit spezifischem thematischen Auftrag (Platzhalter [Aufgabe])."@de ;
+#     rdfs:comment "Role for a Federal Government Commissioner with a specific thematic mandate (placeholder [Task])."@en ;
+#     rdfs:isDefinedBy bundorgs: ;
+# .
+
+bundorgs:GeheimschutzbeauftragteR a org:Role ;
+    rdfs:label "Geheimschutzbeauftragte:r"@de ;
+    rdfs:label "Classified Information Security Officer"@en ;
+    rdfs:comment "Rolle für Geheimschutz, insbesondere organisatorische und fachliche Vorgaben zum Umgang mit Verschlusssachen."@de ;
+    rdfs:comment "Role responsible for classified information protection and related procedures."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
