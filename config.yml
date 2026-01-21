@@ -1,8 +1,8 @@
 # config file for jinja-rdf
 
 # the following two settings are determined by the namespace of the data/vocab we want to serve
-base_url: "https://berlin.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-base_path: "/lod-vocabulary" # the subpath of your site, e.g. /blog
+base_url: "https://technologiestiftung.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+base_path: "/lod-vocabulary-bund" # the subpath of your site, e.g. /blog
 
 # where is the data:
 dataset_path: "data/temp/all.nt"

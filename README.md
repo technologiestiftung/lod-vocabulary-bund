@@ -9,6 +9,7 @@ The vocabularies contained in this repository are:
 - [Berlin Public Organisation Vocabulary](https://technologiestiftung.github.io/lod-vocabulary-bund/berorgs/)
 - ['Berliner Allerlei'-Vokabular](https://technologiestiftung.github.io/lod-vocabulary-bund/blnal/)
 - [LOR-Einheiten-Vokabular](https://technologiestiftung.github.io/lod-vocabulary-bund/lorunits/)
+- Test
 
 **[Start browsing the data!](https://technologiestiftung.github.io/lod-vocabulary-bund/)**
 
