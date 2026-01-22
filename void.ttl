@@ -16,6 +16,5 @@ lodvocab: a void:Dataset ;
     dcterms:title "Deutsche LOD-Vokabulare auf Bundesebene"@de,
         "German Federal LOD Vocabularies"@en ;
     void:vocabulary bundorgs: ;
-    blnal:changelog <https://github.com/technologiestiftung/lod-vocabulary-bund/blob/main/CHANGELOG.md> ;
     foaf:homepage <https://github.com/technologiestiftung/lod-vocabulary-bund> ;
 .
