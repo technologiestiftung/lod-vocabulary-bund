@@ -16,15 +16,12 @@ output_path: "_site/"
 # RDF prefixes that can be used in the templates (in UPPERCASE) and in SPARQL queries (as is):
 # (should include the namespace of our data)
 prefixes:
-  berorgs: https://technologiestiftung.github.io/lod-vocabulary-bund/berorgs/
-  blnal: https://technologiestiftung.github.io/lod-vocabulary-bund/blnal/
+  bundorgs: https://technologiestiftung.github.io/lod-vocabulary-bund/bundorgs/
   dct: http://purl.org/dc/terms/
   dcat: http://www.w3.org/ns/dcat#
   eli: http://data.europa.eu/eli/ontology#
   foaf: http://xmlns.com/foaf/0.1/
   hh: https://okfde.github.io/lod-budget-vocab/
-  lodsg: https://berlinonline.github.io/lod-sg/
-  lorunits: https://technologiestiftung.github.io/lod-vocabulary-bund/lorunits/
   meta: https://cube.link/meta/
   org: http://www.w3.org/ns/org#
   owl: http://www.w3.org/2002/07/owl#

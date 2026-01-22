@@ -5,33 +5,6 @@ generate: data/temp/all.nt
 generate+serve_locally: data/temp/all.nt
 	python bin/generate.py --site_url http://localhost:8000 --serve
 
-data/berorgs/stats.ttl: data/berorgs/berorgs.ttl
-	@echo "generating VOID statistics for Berorgs vocab from $^..."
-	@echo "writing to $@ ..."
-	@python bin/void_statistics.py \
-		--input $^ \
-		--base_uri "https://technologiestiftung.github.io/lod-vocabulary-bund/berorgs/" \
-		--base_prefix "berorgs" \
-		--dataset_uri "https://technologiestiftung.github.io/lod-vocabulary-bund/berorgs/" > $@
-
-data/blnal/stats.ttl: data/blnal/blnal.ttl
-	@echo "generating VOID statistics for Berliner Allerlei vocab from $^..."
-	@echo "writing to $@ ..."
-	@python bin/void_statistics.py \
-		--input $^ \
-		--base_uri "https://technologiestiftung.github.io/lod-vocabulary-bund/blnal/" \
-		--base_prefix "blnal" \
-		--dataset_uri "https://technologiestiftung.github.io/lod-vocabulary-bund/blnal/" > $@
-
-data/lorunits/stats.ttl: data/lorunits/units.ttl
-	@echo "generating VOID statistics for LOR Units vocab from $^..."
-	@echo "writing to $@ ..."
-	@python bin/void_statistics.py \
-		--input $^ \
-		--base_uri "https://technologiestiftung.github.io/lod-vocabulary-bund/lorunits/" \
-		--base_prefix "lorunits" \
-		--dataset_uri "https://technologiestiftung.github.io/lod-vocabulary-bund/lorunits/" > $@
-
 data/bundorgs/stats.ttl: data/bundorgs/bundorgs.ttl
 	@echo "generating VOID statistics for Bundorgs vocab from $^..."
 	@echo "writing to $@ ..."
@@ -46,10 +19,7 @@ data/bundorgs/stats.ttl: data/bundorgs/bundorgs.ttl
 # description and the actual data.
 # The target works by merging all prerequisites.
 data/temp/all.nt: data/temp void.ttl \
-	data/berorgs/berorgs.ttl data/berorgs/stats.ttl \
-	data/lorunits/units.ttl data/lorunits/stats.ttl \
-	data/bundorgs/bundorgs.ttl data/bundorgs/stats.ttl \
-	data/blnal/blnal.ttl data/blnal/stats.ttl
+	data/bundorgs/bundorgs.ttl data/bundorgs/stats.ttl
 	@echo "combining $(filter-out $<,$^) to $@ ..."
 	@rdfpipe -o ntriples $(filter-out $<,$^) > $@
 

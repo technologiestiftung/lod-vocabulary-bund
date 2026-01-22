@@ -1,4 +1,4 @@
-@prefix berorgs: <https://technologiestiftung.github.io/lod-vocabulary-bund/berorgs/> .
+@prefix bundorgs: <https://technologiestiftung.github.io/lod-vocabulary-bund/bundorgs/> .
 @prefix dct:  <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix lodvocab: <https://technologiestiftung.github.io/lod-vocabulary-bund/> .
@@ -19,17 +19,16 @@
 
 # edit this VOID file, not the one in root. The one in root is generated automatically based on this one.
 
-
 lodvocab:
     a void:Dataset ;
-    dct:title "Berliner LOD-Vokabulare"@de ;
-    dct:title "Berlin LOD vocabularies"@en ;
-    dct:description "Verschiedene Vokabulare für Linked Open Data der Berliner Verwaltungen."@de ;
-    dct:description "Various vocabularies for linked open data published by the public administration of Berlin."@en ;
-    dct:created "2023-09-25"^^xsd:date ;
-    dct:modified "2025-11-10"^^xsd:date ;
+    dct:title "Deutsche LOD-Vokabulare auf Bundesebene"@de ;
+    dct:title "German Federal LOD Vocabularies"@en ;
+    dct:description "Verschiedene Vokabulare für Linked Open Data der deutschen Bundesverwaltung."@de ;
+    dct:description "Various vocabularies for linked open data from the German Federal Administration"@en ;
+    dct:created "2026-01-22"^^xsd:date ;
+    dct:modified "2026-01-22"^^xsd:date ;
     dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
     foaf:homepage <https://github.com/technologiestiftung/lod-vocabulary-bund> ;
     void:feature swformats:Turtle ;
-    void:vocabulary berorgs: ;
+    void:vocabulary bundorgs: ;
 .
