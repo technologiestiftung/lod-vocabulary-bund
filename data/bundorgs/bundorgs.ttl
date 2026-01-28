@@ -140,7 +140,7 @@ bundorgs:Sonderaufgabe a owl:Class ;
 
 # Vocabulary Terms - Roles
 
-bundorgs:LeitungMisc a org:Role ;
+bundorgs:Leitung a org:Role ;
     rdfs:label "Sonstige Leitung"@de ;
     rdfs:label "Leadership"@en ;
     rdfs:comment "Allgemeine Leitungsfunktion, wenn keine spezifischere Rollenbezeichnung vorliegt."@de ;
@@ -153,6 +153,7 @@ bundorgs:BundesministerIn a org:Role ;
     rdfs:label "Federal Minister"@en ;
     rdfs:comment "Bundesminister:in, Mitglied der Bundesregierung und Leiter:in eines Bundesministeriums."@de ;
     rdfs:comment "Federal Minister; member of the Federal Government and head of a federal ministry."@en ;
+    rdfs:subClassOf bundorgs:Leitung;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -161,6 +162,7 @@ bundorgs:StaatssekretaerIn a org:Role ;
     rdfs:label "State Secretary"@en ;
     rdfs:comment "Beamtete:r oder politische:r Staatssekretär:in als ranghohe Leitungsebene zur Unterstützung der Ministeriumsleitung."@de ;
     rdfs:comment "Senior executive supporting the ministry leadership (civil service or political appointment, depending on context)."@en ;
+    rdfs:subClassOf bundorgs:Leitung;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -169,6 +171,7 @@ bundorgs:ParlamentarischeRStaatssekretaerIn a org:Role ;
     rdfs:label "Parliamentary State Secretary"@en ;
     rdfs:comment "Parlamentarische:r Staatssekretär:in; politische Funktion zur Unterstützung der Ministeriumsleitung und zur Verbindung mit dem Parlament."@de ;
     rdfs:comment "Parliamentary State Secretary; political role supporting the ministry leadership and liaising with parliament."@en ;
+    rdfs:subClassOf bundorgs:Leitung;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -177,6 +180,7 @@ bundorgs:Abteilungsleitung a org:Role ;
     rdfs:label "Division Head"@en ;
     rdfs:comment "Leitung einer Abteilung in einem Bundesministerium oder einer Bundesbehörde."@de ;
     rdfs:comment "Head of a division within a federal ministry or federal authority."@en ;
+    rdfs:subClassOf bundorgs:Leitung;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -185,6 +189,7 @@ bundorgs:Referatsleitung a org:Role ;
     rdfs:label "Department Head"@en ;
     rdfs:comment "Leitung eines Referats (fachliche und organisatorische Verantwortung für das Referat)."@de ;
     rdfs:comment "Head of a unit (Referat), responsible for its management and subject matter."@en ;
+    rdfs:subClassOf bundorgs:Leitung;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -193,6 +198,7 @@ bundorgs:Unterabteilungsleitung a org:Role ;
     rdfs:label "Sub-division Head"@en ;
     rdfs:comment "Leitung einer Unterabteilung als Zwischenebene innerhalb einer Abteilung."@de ;
     rdfs:comment "Head of a sub-division as an intermediate level within a division."@en ;
+    rdfs:subClassOf bundorgs:Leitung;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -222,11 +228,19 @@ bundorgs:PressesprecherIn a org:Role ;
 
 # Vocabulary Terms - Commissioners / Officers / Representatives Roles
 
-bundorgs:BeauftragteRMisc a org:Role ;
-    rdfs:label "Sonstiger Beauftragte:r"@de ;
+bundorgs:BeauftragteR a org:Role ;
+    rdfs:label "Sonstige:r Beauftragte:r"@de ;
     rdfs:label "Misc Commissioner"@en ;
     rdfs:comment "Generische Rolle für behördeninterne Beauftragte mit einem spezifischen Zuständigkeitsbereich."@de ;
     rdfs:comment "Generic role for internal commissioners/officers with a defined responsibility area."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:VertreterIn a org:Role ;
+    rdfs:label "Sonstige:r Vertretunger:in"@de ;
+    rdfs:label "Other representative"@en ;
+    rdfs:comment "Generische Rolle für behördeninterne Vertretungen mit einem spezifischen Zuständigkeitsbereich."@de ;
+    rdfs:comment "Generic role for internal representative with a defined responsibility area."@en ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -235,6 +249,7 @@ bundorgs:DatenschutzbeauftragteR a org:Role ;
     rdfs:label "Data Privacy Officer"@en ;
     rdfs:comment "Rolle zur Überwachung und Beratung hinsichtlich Datenschutz und datenschutzrechtlicher Vorgaben in der Behörde."@de ;
     rdfs:comment "Role responsible for advising on and monitoring compliance with data protection requirements."@en ;
+    rdfs:subClassOf bundorgs:BeauftragteR;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -243,6 +258,7 @@ bundorgs:GleichstellungsbeauftragteR a org:Role ;
     rdfs:label "Equal Opportunities Officer"@en ;
     rdfs:comment "Rolle zur Förderung der Gleichstellung und zur Beratung in Gleichstellungsfragen."@de ;
     rdfs:comment "Role responsible for promoting equal opportunities and advising on equality matters."@en ;
+    rdfs:subClassOf bundorgs:BeauftragteR;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -259,6 +275,7 @@ bundorgs:Schwerbehindertenvertretung a org:Role ;
     rdfs:label "Representative for Employees with Severe Disabilities"@en ;
     rdfs:comment "Interessenvertretung der schwerbehinderten Beschäftigten."@de ;
     rdfs:comment "Representative body for employees with severe disabilities."@en ;
+    rdfs:subClassOf bundorgs:VertreterIn;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -267,6 +284,7 @@ bundorgs:Auszubildendenvertretung a org:Role ;
     rdfs:label "Trainee Representative"@en ;
     rdfs:comment "Interessenvertretung der Auszubildenden."@de ;
     rdfs:comment "Representative function for trainees/apprentices."@en ;
+    rdfs:subClassOf bundorgs:VertreterIn;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -291,6 +309,7 @@ bundorgs:BeauftragteRFuerDenHaushalt a org:Role ;
     rdfs:label "Budget Officer"@en ;
     rdfs:comment "Rolle für Haushaltsangelegenheiten, Budgetplanung und -steuerung innerhalb der Organisation."@de ;
     rdfs:comment "Role responsible for budget matters, planning and controlling within the organization."@en ;
+    rdfs:subClassOf bundorgs:BeauftragteR;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -299,6 +318,7 @@ bundorgs:InformationssicherheitsbeauftragteR a org:Role ;
     rdfs:label "Information Security Officer"@en ;
     rdfs:comment "Rolle zur Koordination und Überwachung der Informationssicherheit (z.B. ISMS, Richtlinien, Maßnahmen)."@de ;
     rdfs:comment "Role coordinating and overseeing information security (e.g., ISMS, policies, measures)."@en ;
+    rdfs:subClassOf bundorgs:BeauftragteR;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -315,6 +335,7 @@ bundorgs:Hauptpersonalrat a org:Role ;
     rdfs:label "Main Staff Council"@en ;
     rdfs:comment "Übergeordnete Personalvertretung (z.B. auf Ressort-/Geschäftsbereichsebene)."@de ;
     rdfs:comment "Higher-level employee representative body (e.g., at portfolio level)."@en ;
+    rdfs:subClassOf bundorgs:VertreterIn;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -331,6 +352,7 @@ bundorgs:GeheimschutzbeauftragteR a org:Role ;
     rdfs:label "Classified Information Security Officer"@en ;
     rdfs:comment "Rolle für Geheimschutz, insbesondere organisatorische und fachliche Vorgaben zum Umgang mit Verschlusssachen."@de ;
     rdfs:comment "Role responsible for classified information protection and related procedures."@en ;
+    rdfs:subClassOf bundorgs:BeauftragteR;
     rdfs:isDefinedBy bundorgs: ;
 .
 
