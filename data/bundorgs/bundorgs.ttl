@@ -61,6 +61,26 @@ bundorgs:expectedReportsToRole a owl:ObjectProperty ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
+bundorgs:expectedUnitOf a owl:ObjectProperty ;
+    rdfs:label "erwartete Zuordnung zu"@de ;
+    rdfs:label "expected unit of"@en ;
+    rdfs:comment "Formale Beschreibung einer üblichen, jedoch nicht verpflichtenden Zuordnung einer Organisationseinheit zu einer übergeordneten Organisationseinheit."@de ;
+    rdfs:comment "Formal description of a customary, but non-mandatory, relationship between an organisational unit and its expected parent unit."@en ;
+    rdfs:domain bundorgs:Organisationseinheit ;
+    rdfs:range bundorgs:Organisationseinheit ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+# bundorgs:expectedHasUnit a owl:ObjectProperty ;
+#     rdfs:label "erwartete Untereinheit"@de ;
+#     rdfs:label "expected unit"@en ;
+#     rdfs:comment "Formale Beschreibung einer üblichen, jedoch nicht verpflichtenden Beziehung zwischen einer Organisationseinheit und ihren erwarteten Untereinheiten."@de ;
+#     rdfs:comment "Formal description of a customary, but non-mandatory, relationship between an organisational unit and its expected sub-units."@en ;
+#     rdfs:domain bundorgs:Organisationseinheit ;
+#     rdfs:range bundorgs:Organisationseinheit ;
+#     rdfs:isDefinedBy bundorgs: ;
+# .
+
 # Vocabulary Terms - Organizations
 
 bundorgs:Bundesministerium a owl:Class ;
@@ -90,11 +110,7 @@ bundorgs:StaatssekretaerInOrgUnit a owl:Class ;
     rdfs:comment "Beamtete:r oder politische:r Staatssekretär:in als ranghohe Leitungsebene zur Unterstützung der Ministeriumsleitung."@de ;
     rdfs:comment "Senior executive supporting the ministry leadership (civil service or political appointment, depending on context)."@en ;
     rdfs:subClassOf org:OrganizationalUnit ;
-    rdfs:subClassOf [
-        a owl:Restriction ;
-        owl:onProperty org:unitOf ;
-        owl:allValuesFrom bundorgs:Bundesministerium
-    ] ;
+    bundorgs:expectedUnitOf bundorgs:Bundesministerium ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -104,14 +120,7 @@ bundorgs:Referat a owl:Class ;
     rdfs:comment "Untergliederung innerhalb einer Abteilung, zuständig für ein abgegrenztes Sachgebiet."@de ;
     rdfs:comment "Sub-unit within a division responsible for a defined subject area."@en ;
     rdfs:subClassOf bundorgs:Organisationseinheit ;
-    rdfs:subClassOf [
-        a owl:Restriction ;
-        owl:onProperty org:unitOf ;
-        owl:allValuesFrom [
-            a owl:Class ;
-            owl:unionOf ( bundorgs:Abteilung bundorgs:Unterabteilung )
-        ]
-    ] ;
+    bundorgs:expectedUnitOf bundorgs:Abteilung bundorgs:Unterabteilung ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -121,6 +130,7 @@ bundorgs:Abteilung a owl:Class ;
     rdfs:comment "Größere Organisationseinheit innerhalb einer Behörde, die mehrere Referate und Aufgabenbereiche bündelt."@de ;
     rdfs:comment "Larger organizational unit grouping multiple units and responsibilities within an authority."@en ;
     rdfs:subClassOf bundorgs:Organisationseinheit ;
+    bundorgs:expectedUnitOf bundorgs:StaatssekretaerInOrgUnit bundorgs:Bundesministerium;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -130,11 +140,7 @@ bundorgs:Unterabteilung a owl:Class ;
     rdfs:comment "Zwischenebene innerhalb einer Abteilung; fasst mehrere Referate oder Teilbereiche zusammen."@de ;
     rdfs:comment "Intermediate level within a division; groups several units or sub-areas."@en ;
     rdfs:subClassOf bundorgs:Organisationseinheit ;
-    rdfs:subClassOf [
-        a owl:Restriction ;
-        owl:onProperty org:unitOf ;
-        owl:allValuesFrom bundorgs:Abteilung
-    ] ;
+    bundorgs:expectedUnitOf bundorgs:Abteilung ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -153,14 +159,7 @@ bundorgs:Arbeitsgruppe a owl:Class ;
     rdfs:comment "Einheit (oft temporär) zur gemeinsamen Bearbeitung fach- oder bereichsübergreifender Aufgaben."@de ;
     rdfs:comment "Unit (often temporary) working jointly on tasks across domains or departments."@en ;
     rdfs:subClassOf bundorgs:Organisationseinheit ;
-    rdfs:subClassOf [
-        a owl:Restriction ;
-        owl:onProperty org:unitOf ;
-        owl:allValuesFrom [
-            a owl:Class ;
-            owl:unionOf ( bundorgs:Abteilung bundorgs:Unterabteilung )
-        ]
-    ] ;
+    bundorgs:expectedUnitOf bundorgs:Abteilung bundorgs:Unterabteilung  ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -170,14 +169,7 @@ bundorgs:Sonderaufgabe a owl:Class ;
     rdfs:comment "Spezifische, häufig zeitlich befristete Aufgabe bzw. Funktionseinheit mit besonderem Auftrag."@de ;
     rdfs:comment "Specific, often time-limited task or functional unit with a special mandate."@en ;
     rdfs:subClassOf bundorgs:Organisationseinheit ;
-    rdfs:subClassOf [
-        a owl:Restriction ;
-        owl:onProperty org:unitOf ;
-        owl:allValuesFrom [
-            a owl:Class ;
-            owl:unionOf ( bundorgs:Abteilung bundorgs:Unterabteilung )
-        ]
-    ] ;
+    bundorgs:expectedUnitOf bundorgs:Abteilung bundorgs:Unterabteilung  ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
