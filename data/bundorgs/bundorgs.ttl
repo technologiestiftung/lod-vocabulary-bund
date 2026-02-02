@@ -111,8 +111,8 @@ bundorgs:Unterabteilung a owl:Class ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
-bundorgs:Stabsstelle a owl:Class ;
-    rdfs:label "Stabsstelle"@de ;
+bundorgs:Stab a owl:Class ;
+    rdfs:label "Stab"@de ;
     rdfs:label "Staff Unit"@en ;
     rdfs:comment "Spezialisierte Einheit zur Unterstützung der Leitung, häufig mit koordinierenden, beratenden oder strategischen Aufgaben."@de ;
     rdfs:comment "Specialized unit supporting leadership, often with coordination, advisory or strategic tasks."@en ;
@@ -134,6 +134,15 @@ bundorgs:Sonderaufgabe a owl:Class ;
     rdfs:label "Special Assignment"@en ;
     rdfs:comment "Spezifische, häufig zeitlich befristete Aufgabe bzw. Funktionseinheit mit besonderem Auftrag."@de ;
     rdfs:comment "Specific, often time-limited task or functional unit with a special mandate."@en ;
+    rdfs:subClassOf bundorgs:Organisationseinheit;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Buero a owl:Class ;
+    rdfs:label "Büro"@de ;
+    rdfs:label "Office"@en ;
+    rdfs:comment "Organisationseinheit zur administrativen, organisatorischen und fachlichen Unterstützung einer Leitung oder Funktion, z.B. eines Ministers oder einer Staatssekretärin."@de ;
+    rdfs:comment "Organizational unit providing administrative, organizational and subject-matter support to a leadership position or function, e.g. a minister or state secretary."@en ;
     rdfs:subClassOf bundorgs:Organisationseinheit;
     rdfs:isDefinedBy bundorgs: ;
 .
@@ -202,8 +211,8 @@ bundorgs:Unterabteilungsleitung a org:Role ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
-bundorgs:StaendigeRVertreterIn a org:Role ;
-    rdfs:label "Ständige:r Vertreter:in"@de ;
+bundorgs:StaendigeRVertretung a org:Role ;
+    rdfs:label "Ständige Vertretung"@de ;
     rdfs:label "Permanent Representative"@en ;
     rdfs:comment "Rolle zur ständigen Vertretung einer Leitung oder Organisationseinheit."@de ;
     rdfs:comment "Role permanently deputizing for a leader or organizational unit."@en ;
