@@ -120,7 +120,7 @@ bundorgs:Referat a owl:Class ;
     rdfs:comment "Untergliederung innerhalb einer Abteilung, zuständig für ein abgegrenztes Sachgebiet."@de ;
     rdfs:comment "Sub-unit within a division responsible for a defined subject area."@en ;
     rdfs:subClassOf bundorgs:Organisationseinheit ;
-    bundorgs:expectedUnitOf bundorgs:Abteilung bundorgs:Unterabteilung ;
+    bundorgs:expectedUnitOf bundorgs:Abteilung , bundorgs:Unterabteilung ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -130,7 +130,7 @@ bundorgs:Abteilung a owl:Class ;
     rdfs:comment "Größere Organisationseinheit innerhalb einer Behörde, die mehrere Referate und Aufgabenbereiche bündelt."@de ;
     rdfs:comment "Larger organizational unit grouping multiple units and responsibilities within an authority."@en ;
     rdfs:subClassOf bundorgs:Organisationseinheit ;
-    bundorgs:expectedUnitOf bundorgs:StaatssekretaerInOrgUnit bundorgs:Bundesministerium;
+    bundorgs:expectedUnitOf bundorgs:StaatssekretaerInOrgUnit , bundorgs:Bundesministerium;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -159,7 +159,7 @@ bundorgs:Arbeitsgruppe a owl:Class ;
     rdfs:comment "Einheit (oft temporär) zur gemeinsamen Bearbeitung fach- oder bereichsübergreifender Aufgaben."@de ;
     rdfs:comment "Unit (often temporary) working jointly on tasks across domains or departments."@en ;
     rdfs:subClassOf bundorgs:Organisationseinheit ;
-    bundorgs:expectedUnitOf bundorgs:Abteilung bundorgs:Unterabteilung  ;
+    bundorgs:expectedUnitOf bundorgs:Abteilung , bundorgs:Unterabteilung  ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -169,7 +169,7 @@ bundorgs:Sonderaufgabe a owl:Class ;
     rdfs:comment "Spezifische, häufig zeitlich befristete Aufgabe bzw. Funktionseinheit mit besonderem Auftrag."@de ;
     rdfs:comment "Specific, often time-limited task or functional unit with a special mandate."@en ;
     rdfs:subClassOf bundorgs:Organisationseinheit ;
-    bundorgs:expectedUnitOf bundorgs:Abteilung bundorgs:Unterabteilung  ;
+    bundorgs:expectedUnitOf bundorgs:Abteilung , bundorgs:Unterabteilung  ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
