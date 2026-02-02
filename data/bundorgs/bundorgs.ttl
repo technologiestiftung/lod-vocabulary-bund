@@ -51,6 +51,15 @@ bundorgs:contains a owl:ObjectProperty ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
+bundorgs:expectedReportsToRole a owl:ObjectProperty ;
+    rdfs:label "erwartete Berichtslinie"@de ;
+    rdfs:label "expected reporting line"@en ;
+    rdfs:comment "Formale Beschreibung einer üblichen, jedoch nicht verpflichtenden Berichtsbeziehung zwischen Rollen innerhalb einer Organisationsstruktur."@de ;
+    rdfs:comment "Formal description of a customary, but non-mandatory, reporting relationship between roles within an organisational structure."@en ;
+    rdfs:domain org:Role ;
+    rdfs:range org:Role ;
+    rdfs:isDefinedBy bundorgs: ;
+.
 
 # Vocabulary Terms - Organizations
 
@@ -206,6 +215,7 @@ bundorgs:StaatssekretaerIn a org:Role ;
     rdfs:comment "Beamtete:r oder politische:r Staatssekretär:in als ranghohe Leitungsebene zur Unterstützung der Ministeriumsleitung."@de ;
     rdfs:comment "Senior executive supporting the ministry leadership (civil service or political appointment, depending on context)."@en ;
     rdfs:subClassOf bundorgs:Leitung;
+    bundorgs:expectedReportsToRole bundorgs:BundesministerIn ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -215,6 +225,7 @@ bundorgs:ParlamentarischeRStaatssekretaerIn a org:Role ;
     rdfs:comment "Parlamentarische:r Staatssekretär:in; politische Funktion zur Unterstützung der Ministeriumsleitung und zur Verbindung mit dem Parlament."@de ;
     rdfs:comment "Parliamentary State Secretary; political role supporting the ministry leadership and liaising with parliament."@en ;
     rdfs:subClassOf bundorgs:Leitung;
+    bundorgs:expectedReportsToRole bundorgs:BundesministerIn ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -224,6 +235,7 @@ bundorgs:Abteilungsleitung a org:Role ;
     rdfs:comment "Leitung einer Abteilung in einem Bundesministerium oder einer Bundesbehörde."@de ;
     rdfs:comment "Head of a division within a federal ministry or federal authority."@en ;
     rdfs:subClassOf bundorgs:Leitung;
+    bundorgs:expectedReportsToRole bundorgs:StaatssekretaerIn ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -232,7 +244,8 @@ bundorgs:Referatsleitung a org:Role ;
     rdfs:label "Department Head"@en ;
     rdfs:comment "Leitung eines Referats (fachliche und organisatorische Verantwortung für das Referat)."@de ;
     rdfs:comment "Head of a unit (Referat), responsible for its management and subject matter."@en ;
-    rdfs:subClassOf bundorgs:Leitung;
+    rdfs:subClassOf bundorgs:Leitung ;
+    bundorgs:expectedReportsToRole bundorgs:Abteilungsleitung , bundorgs:Unterabteilungsleitung ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -242,6 +255,7 @@ bundorgs:Unterabteilungsleitung a org:Role ;
     rdfs:comment "Leitung einer Unterabteilung als Zwischenebene innerhalb einer Abteilung."@de ;
     rdfs:comment "Head of a sub-division as an intermediate level within a division."@en ;
     rdfs:subClassOf bundorgs:Leitung;
+    bundorgs:expectedReportsToRole bundorgs:Abteilungsleitung ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -250,6 +264,7 @@ bundorgs:StaendigeRVertretung a org:Role ;
     rdfs:label "Permanent Representative"@en ;
     rdfs:comment "Rolle zur ständigen Vertretung einer Leitung oder Organisationseinheit."@de ;
     rdfs:comment "Role permanently deputizing for a leader or organizational unit."@en ;
+    bundorgs:expectedReportsToRole bundorgs:Abteilungsleitung ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
