@@ -87,7 +87,7 @@ bundorgs:positionsstatus a owl:ObjectProperty ;
   rdfs:label "Positionsstatus"@de ;
   rdfs:label "post status"@en ;
   rdfs:comment "Formale Kennzeichnung des Besetzungs- bzw. Vertretungsstatus einer Position (org:Post)."@de ;
-  rdfs:comment "Formal indicator of the occupancy or acting status of a position (org:Post)."@en ;
+  rdfs:comment "Formal indicator of the occupancy or acting/representation status of a position (org:Post)."@en ;
   rdfs:domain org:Post ;
   rdfs:range bundorgs:Positionsstatus ;
   rdfs:isDefinedBy bundorgs: ;
@@ -96,10 +96,12 @@ bundorgs:positionsstatus a owl:ObjectProperty ;
 bundorgs:Positionsstatus a owl:Class ;
   rdfs:label "Positionsstatus"@de ;
   rdfs:label "post status"@en ;
-  rdfs:comment "Mögliche Statuswerte für eine Position (org:Post)."@de ;
-  rdfs:comment "Possible status values for a post (org:Post)."@en ;
+  rdfs:comment "Mögliche Statuswerte für eine Position (org:Post), inkl. Vertretungs-/Wahrnehmungsarten."@de ;
+  rdfs:comment "Possible status values for a post (org:Post), including acting/representation modes."@en ;
   rdfs:isDefinedBy bundorgs: ;
 .
+
+# Besetzungszustände
 
 bundorgs:Unbesetzt a owl:Class ;
   rdfs:subClassOf bundorgs:Positionsstatus ;
@@ -128,50 +130,32 @@ bundorgs:Geplant a owl:Class ;
   rdfs:isDefinedBy bundorgs: ;
 .
 
-# Personenstatus
+## Vertretungs-/Wahrnehmungsarten (vormals Personenstatus)
 
-bundorgs:personenstatus a owl:ObjectProperty ;
-  rdfs:label "Personenstatus"@de ;
-  rdfs:label "person status"@en ;
-  rdfs:comment "Kennzeichnung der Rolle/Wahrnehmungsart einer Person im Kontext einer Mitgliedschaft (org:Membership), z.B. Ansprechperson oder kommissarisch."@de ;
-  rdfs:comment "Indicator of how a person fulfills a post in the context of a membership (org:Membership), e.g. contact person or acting."@en ;
-  rdfs:domain org:Membership ;
-  rdfs:range bundorgs:Personenstatus ;
+bundorgs:VertretenDurchAnsprechperson a owl:Class ;
+  rdfs:subClassOf bundorgs:Positionsstatus ;
+  rdfs:label "durch Ansprechperson vertreten"@de ;
+  rdfs:label "represented by a contact person"@en ;
+  rdfs:comment "Die Position ist nicht regulär besetzt; Aufgaben werden bis auf Weiteres durch eine benannte Ansprechperson wahrgenommen."@de ;
+  rdfs:comment "The post is not regularly occupied; duties are fulfilled by a designated contact person until further notice."@en ;
   rdfs:isDefinedBy bundorgs: ;
 .
 
-bundorgs:Personenstatus a owl:Class ;
-  rdfs:label "Personenstatus"@de ;
-  rdfs:label "person status"@en ;
-  rdfs:comment "Mögliche Statuswerte für Personen im Kontext einer Mitgliedschaft (org:Membership)."@de ;
-  rdfs:comment "Possible status values for persons in the context of a membership (org:Membership)."@en ;
-  rdfs:isDefinedBy bundorgs: ;
-.
-
-bundorgs:Ansprechperson a owl:Class ;
-  rdfs:subClassOf bundorgs:Personenstatus ;
-  rdfs:label "Ansprechperson bis auf Weiteres"@de ;
-  rdfs:label "contact person until further notice"@en ;
-  rdfs:comment "Person ist als Ansprechperson benannt, ohne reguläre Besetzung der Stelle."@de ;
-  rdfs:comment "Person is designated as contact person without being the regular post holder."@en ;
-  rdfs:isDefinedBy bundorgs: ;
-.
-
-bundorgs:Kommissarisch a owl:Class ;
-  rdfs:subClassOf bundorgs:Personenstatus ;
-  rdfs:label "kommissarisch"@de ;
+bundorgs:KommissarischWahrgenommen a owl:Class ;
+  rdfs:subClassOf bundorgs:Positionsstatus ;
+  rdfs:label "kommissarisch wahrgenommen"@de ;
   rdfs:label "acting"@en ;
-  rdfs:comment "Person nimmt die Aufgaben kommissarisch wahr."@de ;
-  rdfs:comment "Person fulfills the duties on an acting basis."@en ;
+  rdfs:comment "Die Aufgaben der Position werden kommissarisch wahrgenommen."@de ;
+  rdfs:comment "The duties of the post are fulfilled on an acting basis."@en ;
   rdfs:isDefinedBy bundorgs: ;
 .
 
-bundorgs:Stellvertretend a owl:Class ;
-  rdfs:subClassOf bundorgs:Personenstatus ;
-  rdfs:label "stellvertretend"@de ;
-  rdfs:label "deputy / substitute"@en ;
-  rdfs:comment "Person nimmt die Aufgaben stellvertretend wahr."@de ;
-  rdfs:comment "Person fulfills the duties in a deputy/substitute capacity."@en ;
+bundorgs:StellvertretendWahrgenommen a owl:Class ;
+  rdfs:subClassOf bundorgs:Positionsstatus ;
+  rdfs:label "stellvertretend wahrgenommen"@de ;
+  rdfs:label "fulfilled in a deputy/substitute capacity"@en ;
+  rdfs:comment "Die Aufgaben der Position werden stellvertretend wahrgenommen."@de ;
+  rdfs:comment "The duties of the post are fulfilled in a deputy/substitute capacity."@en ;
   rdfs:isDefinedBy bundorgs: ;
 .
 
