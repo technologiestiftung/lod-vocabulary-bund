@@ -80,6 +80,7 @@ bundorgs:expectedUnitOf a owl:ObjectProperty ;
 #     rdfs:range bundorgs:Organisationseinheit ;
 #     rdfs:isDefinedBy bundorgs: ;
 # .
+
 # Positionsstatus
 
 bundorgs:positionsstatus a owl:ObjectProperty ;
@@ -88,51 +89,89 @@ bundorgs:positionsstatus a owl:ObjectProperty ;
   rdfs:comment "Formale Kennzeichnung des Besetzungs- bzw. Vertretungsstatus einer Position (org:Post)."@de ;
   rdfs:comment "Formal indicator of the occupancy or acting status of a position (org:Post)."@en ;
   rdfs:domain org:Post ;
-  rdfs:range skos:Concept ;
+  rdfs:range bundorgs:Positionsstatus ;
   rdfs:isDefinedBy bundorgs: ;
 .
 
-bundorgs:PositionsstatusSchema a skos:ConceptScheme ;
-  skos:prefLabel "Positionsstatus"@de ;
-  skos:altLabel "Stellenstatus"@de ;
-  skos:prefLabel "post status"@en ;
+bundorgs:Positionsstatus a owl:Class ;
+  rdfs:label "Positionsstatus"@de ;
+  rdfs:label "post status"@en ;
+  rdfs:comment "Mögliche Statuswerte für eine Position (org:Post)."@de ;
+  rdfs:comment "Possible status values for a post (org:Post)."@en ;
   rdfs:isDefinedBy bundorgs: ;
 .
 
-bundorgs:Unbesetzt a skos:Concept ;
-  skos:inScheme bundorgs:PositionsstatusSchema ;
-  skos:prefLabel "unbesetzt"@de ;
-  skos:prefLabel "vacant"@en ;
-  skos:notation "N.N." ;
-  skos:definition "Die Position ist derzeit nicht besetzt."@de ;
-  skos:definition "The position is currently not occupied."@en ;
+bundorgs:Unbesetzt a owl:Class ;
+  rdfs:subClassOf bundorgs:Positionsstatus ;
+  rdfs:label "unbesetzt"@de ;
+  rdfs:label "vacant"@en ;
+  rdfs:comment "Die Position ist derzeit nicht besetzt."@de ;
+  rdfs:comment "The position is currently not occupied."@en ;
   rdfs:isDefinedBy bundorgs: ;
 .
 
-bundorgs:KommissarischBesetzt a skos:Concept ;
-  skos:inScheme bundorgs:PositionsstatusSchema ;
-  skos:prefLabel "kommissarisch besetzt"@de ;
-  skos:prefLabel "acting"@en ;
-  skos:definition "Die Position wird kommissarisch wahrgenommen."@de ;
-  skos:definition "The position is filled on an acting basis."@en ;
+bundorgs:Gesperrt a owl:Class ;
+  rdfs:subClassOf bundorgs:Positionsstatus ;
+  rdfs:label "gesperrt"@de ;
+  rdfs:label "frozen"@en ;
+  rdfs:comment "Die Position ist derzeit gesperrt und darf nicht besetzt werden, z. B. aufgrund einer Haushaltssperre oder einer organisatorischen Entscheidung."@de ;
+  rdfs:comment "The post is currently frozen and must not be filled, e.g. due to a budgetary freeze or an organisational decision."@en ;
   rdfs:isDefinedBy bundorgs: ;
 .
 
-bundorgs:Ansprechperson a skos:Concept ;
-  skos:inScheme bundorgs:PositionsstatusSchema ;
-  skos:prefLabel "Ansprechperson bis auf Weiteres"@de ;
-  skos:prefLabel "contact person until further notice"@en ;
-  skos:definition "Für die Position ist eine Ansprechperson benannt, bis die reguläre Besetzung geklärt ist."@de ;
-  skos:definition "A contact person is designated for the position until the regular appointment is clarified."@en ;
+bundorgs:Geplant a owl:Class ;
+  rdfs:subClassOf bundorgs:Positionsstatus ;
+  rdfs:label "geplant"@de ;
+  rdfs:label "planned"@en ;
+  rdfs:comment "Die Position ist vorgesehen, aber noch nicht eingerichtet oder noch nicht wirksam."@de ;
+  rdfs:comment "The post is planned but not yet established or effective."@en ;
   rdfs:isDefinedBy bundorgs: ;
 .
 
-bundorgs:Stellvertretend a skos:Concept ;
-  skos:inScheme bundorgs:PositionsstatusSchema ;
-  skos:prefLabel "stellvertretend"@de ;
-  skos:prefLabel "deputy / acting as substitute"@en ;
-  skos:definition "Die Position wird stellvertretend wahrgenommen, ohne formale kommissarische Bestellung."@de ;
-  skos:definition "The position is exercised in a deputy or substitute capacity without a formal acting appointment."@en ;
+# Personenstatus
+
+bundorgs:personenstatus a owl:ObjectProperty ;
+  rdfs:label "Personenstatus"@de ;
+  rdfs:label "person status"@en ;
+  rdfs:comment "Kennzeichnung der Rolle/Wahrnehmungsart einer Person im Kontext einer Mitgliedschaft (org:Membership), z.B. Ansprechperson oder kommissarisch."@de ;
+  rdfs:comment "Indicator of how a person fulfills a post in the context of a membership (org:Membership), e.g. contact person or acting."@en ;
+  rdfs:domain org:Membership ;
+  rdfs:range bundorgs:Personenstatus ;
+  rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Personenstatus a owl:Class ;
+  rdfs:label "Personenstatus"@de ;
+  rdfs:label "person status"@en ;
+  rdfs:comment "Mögliche Statuswerte für Personen im Kontext einer Mitgliedschaft (org:Membership)."@de ;
+  rdfs:comment "Possible status values for persons in the context of a membership (org:Membership)."@en ;
+  rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Ansprechperson a owl:Class ;
+  rdfs:subClassOf bundorgs:Personenstatus ;
+  rdfs:label "Ansprechperson bis auf Weiteres"@de ;
+  rdfs:label "contact person until further notice"@en ;
+  rdfs:comment "Person ist als Ansprechperson benannt, ohne reguläre Besetzung der Stelle."@de ;
+  rdfs:comment "Person is designated as contact person without being the regular post holder."@en ;
+  rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Kommissarisch a owl:Class ;
+  rdfs:subClassOf bundorgs:Personenstatus ;
+  rdfs:label "kommissarisch"@de ;
+  rdfs:label "acting"@en ;
+  rdfs:comment "Person nimmt die Aufgaben kommissarisch wahr."@de ;
+  rdfs:comment "Person fulfills the duties on an acting basis."@en ;
+  rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Stellvertretend a owl:Class ;
+  rdfs:subClassOf bundorgs:Personenstatus ;
+  rdfs:label "stellvertretend"@de ;
+  rdfs:label "deputy / substitute"@en ;
+  rdfs:comment "Person nimmt die Aufgaben stellvertretend wahr."@de ;
+  rdfs:comment "Person fulfills the duties in a deputy/substitute capacity."@en ;
   rdfs:isDefinedBy bundorgs: ;
 .
 
@@ -282,6 +321,24 @@ bundorgs:Abteilungsleitung a org:Role ;
     rdfs:comment "Leitung einer Abteilung in einem Bundesministerium oder einer Bundesbehörde."@de ;
     rdfs:comment "Head of a division within a federal ministry or federal authority."@en ;
     rdfs:subClassOf bundorgs:Leitung;
+    bundorgs:expectedReportsToRole bundorgs:StaatssekretaerIn ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:AbteilungsleitungStaendigeVertretung a org:Role ;
+    rdfs:label "Ständige Vertretung der Abteilungsleitung"@de ;
+    rdfs:label "Permanent Deputy Division Head"@en ;
+    rdfs:comment
+        "Rolle der dauerhaft bestellten Stellvertretung der Abteilungsleitung.
+        Die ständige Vertretung unterstützt die Abteilungsleitung und übernimmt
+        deren Aufgaben und Befugnisse ganz oder teilweise bei Abwesenheit
+        oder auf Weisung, ohne selbst die Abteilungsleitung zu sein."@de ;
+    rdfs:comment
+        "Role of the permanently appointed deputy to the division head.
+        The permanent deputy supports the division head and assumes their
+        duties and authorities in whole or in part during absence or upon delegation,
+        without holding the division head position itself."@en ;
+    rdfs:subClassOf bundorgs:Leitung ;
     bundorgs:expectedReportsToRole bundorgs:StaatssekretaerIn ;
     rdfs:isDefinedBy bundorgs: ;
 .
