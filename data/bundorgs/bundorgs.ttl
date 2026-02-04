@@ -309,23 +309,23 @@ bundorgs:Abteilungsleitung a org:Role ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
-bundorgs:AbteilungsleitungStaendigeVertretung a org:Role ;
-    rdfs:label "Ständige Vertretung der Abteilungsleitung"@de ;
-    rdfs:label "Permanent Deputy Division Head"@en ;
-    rdfs:comment
-        "Rolle der dauerhaft bestellten Stellvertretung der Abteilungsleitung.
-        Die ständige Vertretung unterstützt die Abteilungsleitung und übernimmt
-        deren Aufgaben und Befugnisse ganz oder teilweise bei Abwesenheit
-        oder auf Weisung, ohne selbst die Abteilungsleitung zu sein."@de ;
-    rdfs:comment
-        "Role of the permanently appointed deputy to the division head.
-        The permanent deputy supports the division head and assumes their
-        duties and authorities in whole or in part during absence or upon delegation,
-        without holding the division head position itself."@en ;
-    rdfs:subClassOf bundorgs:Leitung ;
-    bundorgs:expectedReportsToRole bundorgs:StaatssekretaerIn ;
-    rdfs:isDefinedBy bundorgs: ;
-.
+# bundorgs:AbteilungsleitungStaendigeVertretung a org:Role ;
+#     rdfs:label "Ständige Vertretung der Abteilungsleitung"@de ;
+#     rdfs:label "Permanent Deputy Division Head"@en ;
+#     rdfs:comment
+#         "Rolle der dauerhaft bestellten Stellvertretung der Abteilungsleitung.
+#         Die ständige Vertretung unterstützt die Abteilungsleitung und übernimmt
+#         deren Aufgaben und Befugnisse ganz oder teilweise bei Abwesenheit
+#         oder auf Weisung, ohne selbst die Abteilungsleitung zu sein."@de ;
+#     rdfs:comment
+#         "Role of the permanently appointed deputy to the division head.
+#         The permanent deputy supports the division head and assumes their
+#         duties and authorities in whole or in part during absence or upon delegation,
+#         without holding the division head position itself."@en ;
+#     rdfs:subClassOf bundorgs:Leitung ;
+#     bundorgs:expectedReportsToRole bundorgs:StaatssekretaerIn ;
+#     rdfs:isDefinedBy bundorgs: ;
+# .
 
 bundorgs:Referatsleitung a org:Role ;
     rdfs:label "Referatsleitung"@de ;
