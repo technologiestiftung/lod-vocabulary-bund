@@ -82,58 +82,58 @@ bundorgs:expectedUnitOf a owl:ObjectProperty ;
 # .
 # Positionsstatus
 
-berorgs:positionsstatus a owl:ObjectProperty ;
+bundorgs:positionsstatus a owl:ObjectProperty ;
   rdfs:label "Positionsstatus"@de ;
   rdfs:label "post status"@en ;
   rdfs:comment "Formale Kennzeichnung des Besetzungs- bzw. Vertretungsstatus einer Position (org:Post)."@de ;
   rdfs:comment "Formal indicator of the occupancy or acting status of a position (org:Post)."@en ;
   rdfs:domain org:Post ;
   rdfs:range skos:Concept ;
-  rdfs:isDefinedBy berorgs: ;
+  rdfs:isDefinedBy bundorgs: ;
 .
 
-berorgs:PositionsstatusSchema a skos:ConceptScheme ;
+bundorgs:PositionsstatusSchema a skos:ConceptScheme ;
   skos:prefLabel "Positionsstatus"@de ;
   skos:altLabel "Stellenstatus"@de ;
   skos:prefLabel "post status"@en ;
-  rdfs:isDefinedBy berorgs: ;
+  rdfs:isDefinedBy bundorgs: ;
 .
 
-berorgs:Unbesetzt a skos:Concept ;
-  skos:inScheme berorgs:PositionsstatusSchema ;
+bundorgs:Unbesetzt a skos:Concept ;
+  skos:inScheme bundorgs:PositionsstatusSchema ;
   skos:prefLabel "unbesetzt"@de ;
   skos:prefLabel "vacant"@en ;
   skos:notation "N.N." ;
   skos:definition "Die Position ist derzeit nicht besetzt."@de ;
   skos:definition "The position is currently not occupied."@en ;
-  rdfs:isDefinedBy berorgs: ;
+  rdfs:isDefinedBy bundorgs: ;
 .
 
-berorgs:KommissarischBesetzt a skos:Concept ;
-  skos:inScheme berorgs:PositionsstatusSchema ;
+bundorgs:KommissarischBesetzt a skos:Concept ;
+  skos:inScheme bundorgs:PositionsstatusSchema ;
   skos:prefLabel "kommissarisch besetzt"@de ;
   skos:prefLabel "acting"@en ;
   skos:definition "Die Position wird kommissarisch wahrgenommen."@de ;
   skos:definition "The position is filled on an acting basis."@en ;
-  rdfs:isDefinedBy berorgs: ;
+  rdfs:isDefinedBy bundorgs: ;
 .
 
-berorgs:Ansprechperson a skos:Concept ;
-  skos:inScheme berorgs:PositionsstatusSchema ;
+bundorgs:Ansprechperson a skos:Concept ;
+  skos:inScheme bundorgs:PositionsstatusSchema ;
   skos:prefLabel "Ansprechperson bis auf Weiteres"@de ;
   skos:prefLabel "contact person until further notice"@en ;
   skos:definition "Für die Position ist eine Ansprechperson benannt, bis die reguläre Besetzung geklärt ist."@de ;
   skos:definition "A contact person is designated for the position until the regular appointment is clarified."@en ;
-  rdfs:isDefinedBy berorgs: ;
+  rdfs:isDefinedBy bundorgs: ;
 .
 
-berorgs:Stellvertretend a skos:Concept ;
-  skos:inScheme berorgs:PositionsstatusSchema ;
+bundorgs:Stellvertretend a skos:Concept ;
+  skos:inScheme bundorgs:PositionsstatusSchema ;
   skos:prefLabel "stellvertretend"@de ;
   skos:prefLabel "deputy / acting as substitute"@en ;
   skos:definition "Die Position wird stellvertretend wahrgenommen, ohne formale kommissarische Bestellung."@de ;
   skos:definition "The position is exercised in a deputy or substitute capacity without a formal acting appointment."@en ;
-  rdfs:isDefinedBy berorgs: ;
+  rdfs:isDefinedBy bundorgs: ;
 .
 
 # Vocabulary Terms - Organizations
