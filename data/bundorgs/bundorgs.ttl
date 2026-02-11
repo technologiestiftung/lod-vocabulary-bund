@@ -202,6 +202,15 @@ bundorgs:Referat a owl:Class ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
+bundorgs:Steuerung a owl:Class ;
+    rdfs:label "Steuerung"@de ;
+    rdfs:label "Steering Unit"@en ;
+    rdfs:comment "Organisationseinheit zur Koordination und Steuerung von Aufgaben und Vorhaben."@de ;
+    rdfs:comment "Organizational unit responsible for coordination and steering of tasks and initiatives."@en ;
+    rdfs:subClassOf bundorgs:Organisationseinheit ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
 bundorgs:Abteilung a owl:Class ;
     rdfs:label "Abteilung"@de ;
     rdfs:label "Division"@en ;
