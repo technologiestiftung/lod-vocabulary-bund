@@ -269,6 +269,15 @@ bundorgs:Buero a owl:Class ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
+bundorgs:Beratungsgremium a owl:Class ;
+    rdfs:label "Beratungsgremium"@de ;
+    rdfs:label "Advisory Council"@en ;
+    rdfs:comment "Gremium zur fachlichen und/oder strategischen Beratung der Organisation; erarbeitet Empfehlungen und Stellungnahmen, in der Regel ohne operative Entscheidungs- oder Weisungsbefugnis."@de ;
+    rdfs:comment "Body providing expert and/or strategic advice to the organization; develops recommendations and opinions, typically without operational decision-making or line authority."@en ;
+    rdfs:subClassOf bundorgs:Organisationseinheit ;
+    rdfs:isDefinedBy bundorgs: ;
+.
+
 # Vocabulary Terms - Roles
 
 bundorgs:Leitung a org:Role ;
