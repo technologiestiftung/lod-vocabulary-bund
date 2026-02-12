@@ -511,3 +511,10 @@ bundorgs:GeheimschutzbeauftragteR a org:Role ;
     rdfs:isDefinedBy bundorgs: ;
 .
 
+bundorgs:Protokoll a org:Role ;
+    rdfs:label "Protokoll"@de ;
+    rdfs:label "Protocol"@en ;
+    rdfs:comment "Zuständig für protokollarische Angelegenheiten."@de ;
+    rdfs:comment "Responsible for protocol matters."@en ;
+    rdfs:isDefinedBy bundorgs: ;
+.
