@@ -159,6 +159,89 @@ bundorgs:StellvertretendWahrgenommen a owl:Class ;
   rdfs:isDefinedBy bundorgs: ;
 .
 
+### Amts-/Statusbezeichnungen (Dienst-/Tarifstatus)
+
+bundorgs:Amtsbezeichnung a owl:ObjectProperty ;
+  rdfs:label "Amtsbezeichnung"@de ;
+  rdfs:label "official title"@en ;
+  rdfs:comment "Formale Angabe der Amts- bzw. Statusbezeichnung, die einer Person im Kontext einer Position (org:Post) zugeordnet ist (z.B. RR, ORR, RD, Tarifbeschäftigte:r)."@de ;
+  rdfs:comment "Formal indication of an official title/status assigned in the context of a post (org:Post) (e.g., RR, ORR, RD, tariff employee)."@en ;
+  rdfs:domain org:Post ;
+  rdfs:range bundorgs:Amtsbezeichnungsstatus ;
+  rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:Amtsbezeichnungsstatus a owl:Class ;
+  rdfs:label "Amts-/Statusbezeichnung"@de ;
+  rdfs:label "official title / status designation"@en ;
+  rdfs:comment "Kontrollierter Wertebereich für Amtsbezeichnungen (Beamtenlaufbahn) und Statusbezeichnungen (z.B. Tarifbeschäftigte:r)."@de ;
+  rdfs:comment "Controlled value set for official titles (civil service) and status designations (e.g., tariff employee)."@en ;
+  rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:MinDir a owl:Class ;
+  rdfs:subClassOf bundorgs:Amtsbezeichnungsstatus ;
+  rdfs:label "Ministerialdirektor:in (MinDir)"@de ;
+  rdfs:label "Ministerial Director (MinDir)"@en ;
+  rdfs:comment "Amtsbezeichnung: Ministerialdirektor:in; Leitungsebene oberhalb der Ministerialdirigent:innen, häufig Abteilungsleitung; Abkürzung MinDir."@de ;
+  rdfs:comment "Official title: Ministerial Director; senior executive level in a federal ministry, often heading a division; abbreviation MinDir."@en ;
+  rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:MinDirig a owl:Class ;
+  rdfs:subClassOf bundorgs:Amtsbezeichnungsstatus ;
+  rdfs:label "Ministerialdirigent:in (MinDirig)"@de ;
+  rdfs:label "Ministerial Dirigent (MinDirig)"@en ;
+  rdfs:comment "Amtsbezeichnung: Ministerialdirigent:in; höherer Dienst, typischerweise Unterabteilungsleitung; Abkürzung MinDirig."@de ;
+  rdfs:comment "Official title: Ministerial Dirigent; senior civil service rank typically heading a sub-division; abbreviation MinDirig."@en ;
+  rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:MinR a owl:Class ;
+  rdfs:subClassOf bundorgs:Amtsbezeichnungsstatus ;
+  rdfs:label "Ministerialrat:rätin (MinR)"@de ;
+  rdfs:label "Ministerial Councillor (MinR)"@en ;
+  rdfs:comment "Amtsbezeichnung: Ministerialrat/Ministerialrätin; höherer Dienst, häufig Referatsleitung; Abkürzung MinR."@de ;
+  rdfs:comment "Official title: Ministerial Councillor; senior civil service rank, often head of a unit (Referat); abbreviation MinR."@en ;
+  rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:RD a owl:Class ;
+  rdfs:subClassOf bundorgs:Amtsbezeichnungsstatus ;
+  rdfs:label "Regierungsdirektor:in (RD)"@de ;
+  rdfs:label "Senior Government Director (RD)"@en ;
+  rdfs:comment "Amtsbezeichnung: Regierungsdirektor:in; Abkürzung RD."@de ;
+  rdfs:comment "Official title: Regierungsdirektor:in; abbreviation RD."@en ;
+  rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:ORR a owl:Class ;
+  rdfs:subClassOf bundorgs:Amtsbezeichnungsstatus ;
+  rdfs:label "Oberregierungsrat:rätin (ORR)"@de ;
+  rdfs:label "Senior Government Councillor (ORR)"@en ;
+  rdfs:comment "Amtsbezeichnung: Oberregierungsrat/Oberregierungsrätin; Abkürzung ORR."@de ;
+  rdfs:comment "Official title: Oberregierungsrat/Oberregierungsrätin; abbreviation ORR."@en ;
+  rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:RR a owl:Class ;
+  rdfs:subClassOf bundorgs:Amtsbezeichnungsstatus ;
+  rdfs:label "Regierungsrat:rätin (RR)"@de ;
+  rdfs:label "Government Councillor (RR)"@en ;
+  rdfs:comment "Amtsbezeichnung: Regierungsrat/Regierungsrätin; Abkürzung RR."@de ;
+  rdfs:comment "Official title: Regierungsrat/Regierungsrätin; abbreviation RR."@en ;
+  rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:TB a owl:Class ;
+  rdfs:subClassOf bundorgs:Amtsbezeichnungsstatus ;
+  rdfs:label "Tarifbeschäftigte:r (TB)"@de ;
+  rdfs:label "Tariff employee (TB)"@en ;
+  rdfs:comment "Statusbezeichnung für Beschäftigte im Tarifbereich; Abkürzung TB."@de ;
+  rdfs:comment "Status designation for employees under collective agreements; abbreviation TB."@en ;
+  rdfs:isDefinedBy bundorgs: ;
+.
+
 # Vocabulary Terms - Organizations
 
 bundorgs:Bundesministerium a owl:Class ;
@@ -526,4 +609,13 @@ bundorgs:Protokoll a org:Role ;
     rdfs:comment "Zuständig für protokollarische Angelegenheiten."@de ;
     rdfs:comment "Responsible for protocol matters."@en ;
     rdfs:isDefinedBy bundorgs: ;
+.
+
+bundorgs:SekretaerIn a org:Role ;
+  rdfs:label "Sekretär:in"@de ;
+  rdfs:label "Secretary / Administrative Assistant"@en ;
+  rdfs:comment "Rolle zur administrativen und organisatorischen Unterstützung (z.B. Terminmanagement, Schriftverkehr, Aktenführung, Büroorganisation) einer Leitung oder Organisationseinheit."@de ;
+  rdfs:comment "Role providing administrative and organisational support (e.g., scheduling, correspondence, filing, office administration) to a leader or organisational unit."@en ;
+  bundorgs:expectedReportsToRole bundorgs:Leitung ;
+  rdfs:isDefinedBy bundorgs: ;
 .
